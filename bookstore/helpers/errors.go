@@ -1,4 +1,4 @@
-package services
+package helpers
 
 type BookNotFoundError struct{}
 

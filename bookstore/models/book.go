@@ -1,4 +1,4 @@
-package services
+package models
 
 import "fmt"
 
@@ -26,4 +26,12 @@ func (b *Book) DisplayBook() {
 	fmt.Println("ISBN : ", b.isbn)
 	fmt.Println("Price : ", b.price)
 	fmt.Println("Quantity : ", b.qty)
+}
+
+func (b *Book) GetIsbn() string {
+	return b.isbn
+}
+
+func (b *Book) GetTitle() string {
+	return b.title
 }

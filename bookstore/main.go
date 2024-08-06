@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
-	bookStore := services.NewBookStore()
-	err := bookStore.DisplayAllBooks()
+	inv := services.NewEmptyInventory()
+	bookStore := services.NewBookStore(inv, nil)
+	err := bookStore.ShowInventory()
 	if err != nil {
 		fmt.Println(err.Error())
 	}
