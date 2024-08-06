@@ -35,3 +35,7 @@ func (b *Book) GetIsbn() string {
 func (b *Book) GetTitle() string {
 	return b.title
 }
+
+func (b *Book) GetQty() int {
+	return b.qty
+}

@@ -51,6 +51,17 @@ func (b *Inventory) UpdateBook(isbn string) error {
 	return nil
 }
 
+func (inv *Inventory) SearchAndPurchasable(purchaseQty int, isbn string) bool {
+	idx, err := inv.SearchBookByISBN(isbn)
+	if err != nil {
+		return false
+	}
+	if inv.books[idx].GetQty() >= purchaseQty {
+		return true
+	}
+	return false
+}
+
 func (b *Inventory) DisplayAllBooks() error {
 	if len(b.books) == 0 {
 		return &helpers.NoBooksInInventory{}

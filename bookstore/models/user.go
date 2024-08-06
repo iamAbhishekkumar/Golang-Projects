@@ -2,14 +2,18 @@ package models
 
 type User struct {
 	custName string
-	custId   string
+	userId   string
 	email    string
 }
 
-func NewUser(custName string, custId string, email string) *User {
+func NewUser(custName string, userId string, email string) *User {
 	return &User{
 		custName: custName,
-		custId:   custId,
+		userId:   userId,
 		email:    email,
 	}
+}
+
+func (u *User) UserId() string {
+	return u.userId
 }
