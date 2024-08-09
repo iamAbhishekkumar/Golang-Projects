@@ -39,3 +39,7 @@ func (b *Book) GetTitle() string {
 func (b *Book) GetQty() int {
 	return b.qty
 }
+
+func (b *Book) SetQty(qty int) {
+	b.qty = qty
+}

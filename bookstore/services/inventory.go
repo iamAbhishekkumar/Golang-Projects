@@ -3,7 +3,6 @@ package services
 import (
 	"bookstore/helpers"
 	"bookstore/models"
-	"fmt"
 )
 
 type Inventory struct {
@@ -46,20 +45,13 @@ func (b *Inventory) DeleteBook(isbn string) error {
 	return nil
 }
 
-func (b *Inventory) UpdateBook(isbn string) error {
-	fmt.Print("Updtae BOoks")
-	return nil
-}
-
-func (inv *Inventory) SearchAndPurchasable(purchaseQty int, isbn string) bool {
-	idx, err := inv.SearchBookByISBN(isbn)
+func (b *Inventory) UpdateBookQty(isbn string, qty int) error {
+	idx, err := b.SearchBookByISBN(isbn)
 	if err != nil {
-		return false
+		return nil
 	}
-	if inv.books[idx].GetQty() >= purchaseQty {
-		return true
-	}
-	return false
+	b.books[idx].SetQty(qty)
+	return nil
 }
 
 func (b *Inventory) DisplayAllBooks() error {
